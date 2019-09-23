@@ -1,0 +1,10 @@
+.formNewDot{
+  position: fixed;
+  left: 275px;
+  top: 75%;
+  width:250px;
+  height:180px;
+  display: block;
+  z-index:99999998;
+  opacity: 0.6;
+}

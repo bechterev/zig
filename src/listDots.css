@@ -1,0 +1,11 @@
+.listDots{
+  position: fixed;
+  left: 5px;
+  top: 65%;
+  width:250px;
+  height:250px;
+  display: block;
+  z-index:99999999;
+  opacity: 1;
+  align-content: center;
+}
