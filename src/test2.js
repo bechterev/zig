@@ -34,11 +34,13 @@ this.setState({map:maps});
   addDotMap(val){
      let lays=[];
     try{      if(val[0].funct=="up"){
-            val.map((value)=>{lays.push(L.marker([parseFloat(value.lat), parseFloat(value.long)]));return L.marker([parseFloat(value.lat), parseFloat(value.long)]).addTo(this.state.map).bindPopup(value.name)
+            val.map((value)=>{lays.push(L.marker([parseFloat(value.lat), parseFloat(value.long)]).addTo(this.state.map).bindPopup(value.name)
+            .openPopup());return L.marker([parseFloat(value.lat), parseFloat(value.long)]).addTo(this.state.map).bindPopup(value.name)
             .openPopup();})
             this.setState({lay:lays});
           }
           else{
+            alert(lays.length)
             this.state.lays.map((value)=>{return this.state.map.removeMaker(value)})
         }
         this.setState(prevState=>{let oldList=[...prevState.listDots]; oldList.push(val); return{listDots:oldList}})
