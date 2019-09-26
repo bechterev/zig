@@ -19,7 +19,7 @@ class FormNewDot extends React.Component{
     const{value,placeholder}=e.target;
     switch(placeholder){
       case "Dot name":this.setState({name:value});break;
-      case "time save 01.01.2000 00:00":
+      case "time save 01.01.2010 00:00":
       let dt=/([0-2][0-9]|3[0-1])\.(0[0-9]|1[0-2])\.(20[1-9][0-9]) ([0-1]?[0-9]|2[0-3]):[0-5][0-9]/;
       if(dt.test(value)===true){
         this.setState(prevState=>{let errorBool=Object.assign({},prevState.errorBool); errorBool.errorDate="green"; return{errorBool}});
@@ -47,7 +47,7 @@ class FormNewDot extends React.Component{
         this.setState(prevState =>{let errorBool=Object.assign({},prevState.errorBool); errorBool.errorLong="green"; return{errorBool}});
         this.setState({longetude:value});
       }
-      if(dlon.test(value)===true && value.length==5){
+      if(dlon.test(value)===false && value.length==5){
         this.setState(prevState =>{let errorBool=Object.assign({},prevState.errorBool); errorBool.errorLong="red"; return{errorBool}});
         this.setState({longetude:value});
       }
@@ -57,7 +57,7 @@ class FormNewDot extends React.Component{
   render(){
     return(<div className="formNewDot">
       <input type="text" onChange={this.update} placeholder="Dot name" />
-      <input type="text" style={{borderColor:this.state.errorBool.errorDate}} onChange={this.update} placeholder="time save 01.01.2000 00:00" />
+      <input type="text" style={{borderColor:this.state.errorBool.errorDate}} onChange={this.update} placeholder="time save 01.01.2010 00:00" />
       <input type="text" style={{borderColor:this.state.errorBool.errorLat}} onChange={this.update} placeholder="latitude 00.00" />
       <input type="text" style={{borderColor:this.state.errorBool.errorLong}} onChange={this.update} placeholder="longetude 00.00" />
       <button onClick={this.save}>Сохранить</button>
